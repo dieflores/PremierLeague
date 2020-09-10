@@ -15,7 +15,7 @@ interface PremierDao {
 
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertAllMatchesPremierLeague(listPremierLeague: kotlin.collections.List<com.example.premierleageapp.Api.PremierLeague>)
+    suspend fun insertAllMatchesPremierLeague(list: List<PremierLeague>)
 
     /* Insertar un solo match ?????????????????¡?¡?¡?¡?¡?
     @Insert

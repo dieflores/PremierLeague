@@ -16,7 +16,8 @@ import retrofit2.Response
 
 class RepoPremier(context: Context) {
 
-    private val dataBase: RoomDataBasePremier = RoomDataBasePremier.getDataBase(context)
+    private val dataBase: RoomDataBasePremier = RoomDataBasePremier
+        .getDataBase(context)
     private val premierLeagueList = dataBase.getPremierLeagueDao()
         .getAllMatchesPremierLeague()
     private val tag = "PremierLeague Repository"
@@ -34,6 +35,8 @@ class RepoPremier(context: Context) {
                 call: Call<List<PremierLeague>>,
                 response: Response<List<PremierLeague>>
             ) {
+                Log.d("REPO REVISANDO", response.body().toString())
+
                 CoroutineScope(Dispatchers.IO).launch {
                     response.body()?.let {
                         dataBase.getPremierLeagueDao()
