@@ -6,22 +6,22 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.example.premierleageapp.Api.PremierLeague
 
-@Database(entities = [PremierLeague::class],version = 1, exportSchema = false)
-abstract class RoomDataBasePremier : RoomDatabase(){
+@Database(entities = [PremierLeague::class], version = 1, exportSchema = false)
+abstract class RoomDataBasePremier : RoomDatabase() {
 
-    abstract fun  getPremierLeagueDao(): PremierDao
+    abstract fun getPremierLeagueDao(): PremierDao
 
-    companion object{
+    companion object {
         @Volatile
         private var INSTANCE: RoomDataBasePremier? = null
 
-        fun getDataBase(context: Context): RoomDataBasePremier{
+        fun getDataBase(context: Context): RoomDataBasePremier {
             val tempInstance: RoomDataBasePremier? = INSTANCE
-            if (tempInstance != null){
+            if (tempInstance != null) {
                 return tempInstance
             }
-            synchronized(this){
-                val instance :RoomDataBasePremier = Room.databaseBuilder(
+            synchronized(this) {
+                val instance: RoomDataBasePremier = Room.databaseBuilder(
                     context.applicationContext,
                     RoomDataBasePremier::class.java,
                     "Premier_database"
@@ -29,8 +29,8 @@ abstract class RoomDataBasePremier : RoomDatabase(){
                 INSTANCE = instance
                 return instance
 
-        }
+            }
 
+        }
     }
 }
-    }

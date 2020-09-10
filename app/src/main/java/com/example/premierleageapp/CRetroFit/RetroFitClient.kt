@@ -5,11 +5,11 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class RetroFitClient {
 
-    companion object{
+    companion object {
 
-        private const val BASE_URL = "https://www.scorebat.com/video-api/v1/"
-        fun retrofitInstance(): ApiPremierLeague{
-            val retrofit : Retrofit = Retrofit.Builder()
+        private const val BASE_URL = "https://www.scorebat.com/video-api/"
+        fun retrofitInstance(): ApiPremierLeague {
+            val retrofit: Retrofit = Retrofit.Builder()
                 .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()

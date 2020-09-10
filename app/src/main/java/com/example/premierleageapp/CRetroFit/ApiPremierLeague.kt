@@ -2,17 +2,11 @@ package com.example.premierleageapp.CRetroFit
 
 import com.example.premierleageapp.Api.PremierLeague
 import retrofit2.Call
-import retrofit2.http.*
+import retrofit2.http.GET
 
 interface ApiPremierLeague {
 
-    @GET("")
-
+    @GET("v1/")
     fun GetAllPremierLeague(): Call<List<PremierLeague>>
 
-    @DELETE("")
-    fun deletePremierLeague(@Path("") title: String?): Call<Void>
-
-    @POST("")
-    fun createNewMatchPremierLeague(@Body premierLeague: PremierLeague): Call<PremierLeague>
 }
