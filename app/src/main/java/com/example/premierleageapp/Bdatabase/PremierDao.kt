@@ -23,7 +23,7 @@ interface PremierDao {
 
     //Traer los elementos de la tabla
 
-    @Query("SELECT * FROM PremierLeague_table ORDER BY title DESC")
+    @Query("SELECT * FROM PremierLeague_table ORDER BY date DESC")
     fun getAllMatchesPremierLeague(): LiveData<List<PremierLeague>>
 
 

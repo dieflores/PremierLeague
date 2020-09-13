@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.premierleageapp.AdapterPremierLeague
 import com.example.premierleageapp.Api.PremierLeague
 import com.example.premierleageapp.R
+import com.example.premierleageapp.VideoFragment
 import kotlinx.android.synthetic.main.main_fragment.*
 
 class MainFragment : Fragment() {
@@ -24,6 +25,8 @@ class MainFragment : Fragment() {
 
     private lateinit var viewModel: MainViewModel
     private lateinit var lista: List<PremierLeague>
+    private lateinit var premierFragment: VideoFragment
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -49,5 +52,6 @@ class MainFragment : Fragment() {
         })
 
     }
+
 
 }

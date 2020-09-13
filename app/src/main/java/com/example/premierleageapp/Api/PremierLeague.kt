@@ -8,8 +8,8 @@ import com.google.gson.annotations.SerializedName
 
 @Entity(tableName = "PremierLeague_table")
 data class PremierLeague(
-    @SerializedName("titles")
-    @PrimaryKey(autoGenerate = true) @NonNull val noId: Int = 0,  //ojo aqui en base de datos
+    @SerializedName("title")
+    @PrimaryKey @NonNull  //ojo aqui en base de datos
     val title: String,
     val embed: String?,
     // val url : String?,
