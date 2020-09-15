@@ -6,15 +6,13 @@
     android:layout_height="wrap_content"
     app:cardCornerRadius="2dp"
     app:cardElevation="10dp"
-    app:cardPreventCornerOverlap="false"
-    android:backgroundTint="@color/cardview_light_background">
+    app:cardPreventCornerOverlap="false">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/container1"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/cardview_shadow_start_color"
+        android:layout_height="300dp"
         android:orientation="horizontal"
         android:padding="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -22,91 +20,146 @@
         app:layout_constraintRight_toRightOf="parent">
 
 
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/containerText"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="102dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="38dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/image_one"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/urlCompetition"
+                android:layout_width="110dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="29dp"
+                android:layout_marginEnd="44dp"
+                android:autoLink="web"
+                android:linksClickable="true"
+                android:text="DOSDOSDOS"
+                android:textColorLink="#2196F3"
+                android:textSize="8sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/nameCompetition" />
+
+            <TextView
+                android:id="@+id/nameCompetition"
+                android:layout_width="110dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="44dp"
+                android:text="UNOUNOUNO"
+                android:textSize="8sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/idCompetition"
+                android:layout_width="110dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="29dp"
+                android:layout_marginEnd="44dp"
+                android:layout_marginBottom="16dp"
+                android:text="TRESTRESTRES"
+                android:textSize="8sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/urlCompetition" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <ImageButton
+            android:id="@+id/image_one"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="102dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="38dp"
+            android:layout_weight="1"
+            android:contentDescription="imagenFutbol"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/containerText"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:srcCompat="@tools:sample/avatars" />
+
+
         <TextView
-            android:id="@+id/TextView_One"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginStart="120dp"
-            android:layout_marginEnd="120dp"
-            android:layout_marginBottom="6dp"
-            android:text="THIS IS DATE AND HOURS"
-            android:textColor="#9E9A9A"
-            android:textSize="10sp"
-            android:textStyle="italic"
-            app:layout_constraintBottom_toTopOf="@+id/TextView_TWO"
+            android:id="@+id/LeagueName"
+            android:textStyle="bold"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="9dp"
+            android:gravity="center"
+            android:text="AQUIVA EL NOMBRE PRINCIPAL"
+            android:textSize="22sp"
+            app:layout_constraintBottom_toTopOf="@+id/versusName"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/TextView_TWO"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="22dp"
-            android:layout_marginEnd="22dp"
-            android:layout_marginBottom="18dp"
-            android:text="THIS LONG TEXT ABOUT MATCHES"
-            android:textAlignment="textEnd"
-            android:textColor="#000"
-            android:textSize="20sp"
+            android:id="@+id/versusName"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="7dp"
+            android:layout_marginEnd="9dp"
+            android:gravity="center"
+            android:text="VERSUS V/S VERSUS"
+            android:textStyle="italic"
+            android:textSize="15dp"
+            app:layout_constraintBottom_toTopOf="@+id/dateMatch"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/LeagueName" />
+
+        <TextView
+            android:id="@+id/dateMatch"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="9dp"
+            android:layout_marginBottom="6dp"
+            android:gravity="center"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/TextView_THREE"
+            android:text="AQUI LA FECHA"
+            android:textSize="5sp"
+            app:layout_constraintBottom_toTopOf="@+id/containerText"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/TextView_One" />
+            app:layout_constraintTop_toBottomOf="@+id/versusName" />
 
         <TextView
-            android:id="@+id/TextView_THREE"
-            android:layout_width="wrap_content"
+            android:id="@+id/avisoDeClick"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginEnd="30dp"
-            android:layout_marginBottom="5dp"
-            android:text="THIS IS MATCH VS MATCH"
-            android:textColor="#424242"
-            android:textSize="20sp"
-            android:textStyle="normal"
-            app:layout_constraintBottom_toTopOf="@+id/image_one"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/TextView_TWO" />
-
-        <ImageButton
-            android:id="@+id/image_one"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="130dp"
-            android:layout_marginEnd="130dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="1dp"
+            android:layout_marginEnd="9dp"
             android:layout_marginBottom="10dp"
-            android:layout_weight="1"
-            android:contentDescription="imagenUNO"
+            android:gravity="center"
+            android:text="CLICK TO VIEW MATCH"
+            android:textSize="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/TextView_THREE"
-            tools:srcCompat="@tools:sample/avatars"
-            />
-
-        <TextView
-            android:id="@+id/clickmeImage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="120dp"
-            android:layout_marginEnd="120dp"
-            android:layout_marginBottom="10dp"
-            android:text="CLICK IMAGE VIEW LIVE MATCH"
-            android:textSize="10sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/image_one"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintTop_toBottomOf="@+id/containerText" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>
-
-
-
-
-

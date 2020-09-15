@@ -1,37 +1,45 @@
 package com.example.premierleageapp
 
-import android.app.Dialog
-import android.content.Context
-import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
-import android.widget.ImageView
 import android.widget.TextView
-import android.widget.VideoView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.premierleageapp.Api.PremierLeague
-import com.example.premierleageapp.Api.Videos
-import com.google.gson.Gson
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_list_view_holder.view.*
 
-class AdapterPremierLeague(var dataSetPremierLeague: List<PremierLeague>) :
-    RecyclerView.Adapter<AdapterPremierLeague.ViewHolderPremierLeague>(), View.OnClickListener {
+class AdapterPremierLeague(
+    var dataSetPremierLeague: List<PremierLeague>,
+    val mpasarElDato: PasarElDato
+) :
+    RecyclerView.Adapter<AdapterPremierLeague.ViewHolderPremierLeague>() {
 
     fun updateData(list: List<PremierLeague>) {
         dataSetPremierLeague = list
         notifyDataSetChanged()
     }
 
-    class ViewHolderPremierLeague(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var matchNameLeague: TextView = itemView.TextView_TWO
-        var dateMatchLeague: TextView = itemView.TextView_One
-        var competitionName: TextView = itemView.TextView_THREE
+
+    inner class ViewHolderPremierLeague(itemView: View) : RecyclerView.ViewHolder(itemView),
+        View.OnClickListener {
+        var matchNameLeague: TextView = itemView.LeagueName
+        var dateMatchLeague: TextView = itemView.dateMatch
+        var competitionName: TextView = itemView.versusName
         var imageMatch: ImageButton = itemView.image_one
-        var clickImage: TextView = itemView.clickmeImage
-       // var embedMatchLive: VideoView = itemView.videoView
+        var clickImage: TextView = itemView.avisoDeClick //Solo texto
+
+        // Competition
+        var nameCompetition: TextView = itemView.nameCompetition
+        var idCompetition: TextView = itemView.idCompetition
+        var urlCompetition: TextView = itemView.urlCompetition
+        var imageMatchOne = itemView.setOnClickListener(this)
+
+        override fun onClick(v: View?) {
+            dataSetPremierLeague[adapterPosition].embed?.let { mpasarElDato.pasarElDato(it) }
+
+        }
 
 
     }
@@ -50,13 +58,11 @@ class AdapterPremierLeague(var dataSetPremierLeague: List<PremierLeague>) :
         holder.matchNameLeague.text = match.competition!!.name.toString()
         // AQUI TENGO QUE USAR PICASSO PARA LAS FOTOS
         Picasso.get().load(match.thumbnail).into(holder.imageMatch)
-        holder.clickImage.setOnClickListener{
 
-            val premierDialog = Dialog(holder.itemView.context)
-
-            premierDialog.setContentView(R.layout.fragment_video)
-
-        }
+        // Layout pequeño con info
+        holder.nameCompetition.text = match.competition.name.toString()
+        holder.idCompetition.text = match.competition.id.toString()
+        holder.urlCompetition.text = match.competition.url.toString()
 
 
     }
@@ -66,9 +72,11 @@ class AdapterPremierLeague(var dataSetPremierLeague: List<PremierLeague>) :
         return dataSetPremierLeague.size
     }
 
-    override fun onClick(v: View?) {
-
+    interface PasarElDato {
+        fun pasarElDato(embed: String)
     }
 
 }
+
+
 

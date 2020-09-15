@@ -5,6 +5,7 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.example.premierleageapp.Api.PremierLeague
+import com.example.premierleageapp.Api.Videos
 
 @Database(entities = [PremierLeague::class], version = 1, exportSchema = false)
 abstract class RoomDataBasePremier : RoomDatabase() {

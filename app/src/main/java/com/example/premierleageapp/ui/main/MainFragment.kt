@@ -12,10 +12,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.premierleageapp.AdapterPremierLeague
 import com.example.premierleageapp.Api.PremierLeague
 import com.example.premierleageapp.R
-import com.example.premierleageapp.VideoFragment
 import kotlinx.android.synthetic.main.main_fragment.*
 
-class MainFragment : Fragment() {
+class MainFragment : Fragment(), AdapterPremierLeague.PasarElDato {
 
     lateinit var mAdapterPremierLeague: AdapterPremierLeague
 
@@ -25,7 +24,6 @@ class MainFragment : Fragment() {
 
     private lateinit var viewModel: MainViewModel
     private lateinit var lista: List<PremierLeague>
-    private lateinit var premierFragment: VideoFragment
 
 
     override fun onCreateView(
@@ -40,7 +38,7 @@ class MainFragment : Fragment() {
         viewModel = ViewModelProvider(this)
             .get(MainViewModel::class.java)
         lista = ArrayList()
-        mAdapterPremierLeague = AdapterPremierLeague(lista)
+        mAdapterPremierLeague = AdapterPremierLeague(lista, this)
         viewModel.mGetData()
 
         reciclerViewPremierLeague.adapter = mAdapterPremierLeague
@@ -51,6 +49,10 @@ class MainFragment : Fragment() {
             mAdapterPremierLeague.updateData(it)
         })
 
+    }
+
+    override fun pasarElDato(embed: String) {
+        Log.d("VIENDO SI LLEGA EL emb", embed)
     }
 
 
